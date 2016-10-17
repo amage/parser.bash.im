@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+
+mainClassName = "org.playstat.parsers.bashim.BashParser"
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    compile('com.github.amage:webcrawler:-SNAPSHOT')
+
+    compile 'org.jsoup:jsoup:1.6.3'
+
+    /* logging */
+    compile 'org.slf4j:slf4j-api:1.7.3'
+    compile 'org.slf4j:log4j-over-slf4j:1.7.3'
+    compile 'ch.qos.logback:logback-classic:1.0.10'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = 3.1
+}
+
